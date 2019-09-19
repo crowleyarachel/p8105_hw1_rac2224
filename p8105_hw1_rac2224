@@ -8,6 +8,21 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+##Problem 1
+
+```{r hw1}
+library(tidyverse)
+
+hw1_df = tibble(
+  norm_samp = rnorm(8),
+  norm_samp_pos = norm_samp > 0,
+  vec_char = c("one","two","three","four","five","six", "seven","eight"),
+  vec_factor = factor(c("cat", "dog", "bird", "cat","dog","bird", "cat", "dog"))
+)
+
+
+```
+
 
 ## R Markdown
 

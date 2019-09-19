@@ -69,6 +69,15 @@ as.numeric(pull(hw1_df,norm_samp))
 ```
 ##vec_factor, norm_samp_log, and norm_samp could all be converted to a numeric variable. vec_char, the character vector, could not be converted to numeric, which explains why a mean was not calculated. 
        
+##converting the logical vector
+
+```{r}
+as.numeric(pull(hw1_df,norm_samp_log)) * (pull(hw1_df,norm_samp))
+as.factor(pull(hw1_df,norm_samp_log)) * (pull(hw1_df,norm_samp))
+as.numeric(as.factor(pull(hw1_df,norm_samp_log)))*(pull(hw1_df,norm_samp))
+```
+
+
 
 
 

@@ -97,6 +97,16 @@ plot_df2 = tibble(
 * The mean is `r mean(pull(plot_df2, x))`, the median is `r median(pull(plot_df2,x))`, and the standard deviation is `r sd(pull(plot_df2, x))`
 * The proportion of cases for which x + y > 1 is `r mean(pull(plot_df2, vec_log2))`
 
+##scatterplot of y vs x
+
+```{r yx_scatter}
+ggplot(plot_df2, aes(x=x, y=y, color = vec_log2)) + geom_point()
+ggplot(plot_df2, aes(x=x, y=y, color = vec_numeric2)) + geom_point()
+ggplot(plot_df2, aes(x=x, y=y, color = vec_factor2)) + geom_point()
+```
+
+##Within the first plot that color point using the logic variable, 
+
 
 ## R Markdown
 

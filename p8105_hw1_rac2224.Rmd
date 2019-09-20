@@ -101,29 +101,9 @@ plot_df2 = tibble(
 
 ```{r yx_scatter}
 ggplot(plot_df2, aes(x=x, y=y, color = vec_log2)) + geom_point()
+ggsave("plot_df2.png")
 ggplot(plot_df2, aes(x=x, y=y, color = vec_numeric2)) + geom_point()
 ggplot(plot_df2, aes(x=x, y=y, color = vec_factor2)) + geom_point()
 ```
 
-##Within the first plot that color point using the logic variable, 
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+##Within the first plot that colors points using the logic variable, the color scale consists of two colors that represent the binary of true versus false. Red equals false and blue equals true. Similarly, within the third plot that colors points using the factor variable the color scale consists of two colors that represent the binary of true versus false. Red equals false and blue equals true. Within the second plot that colors points using the numeric variable, the color scale is a gradient that includes colors from dark blue to light blue, which represents a continuous scale from 0.00 to 1.00 respectively.

@@ -81,8 +81,6 @@ as.numeric(as.factor(pull(hw1_df,norm_samp_log)))*(pull(hw1_df,norm_samp))
 ##Problem 2
 
 ```{r}
-library(tidyverse)
-
 set.seed(1234)
 
 plot_df2 = tibble(
@@ -98,6 +96,7 @@ plot_df2 = tibble(
 * The size of the dataset is `r nrow(plot_df2)` rows and `r ncol(plot_df2)` columns
 * The mean is `r mean(pull(plot_df2, x))`, the median is `r median(pull(plot_df2,x))`, and the standard deviation is `r sd(pull(plot_df2, x))`
 * The proportion of cases for which x + y > 1 is `r mean(pull(plot_df2, vec_log2))`
+
 
 ## R Markdown
 

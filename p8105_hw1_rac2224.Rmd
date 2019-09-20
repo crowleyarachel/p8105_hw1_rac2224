@@ -9,9 +9,9 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##Problem 1
+Problem 1
 
-##creating dataframe
+creating dataframe
 
 ```{r}
 library(tidyverse)
@@ -23,54 +23,56 @@ hw1_df = tibble(
   vec_factor = factor(c("cat", "dog", "bird", "cat","dog","bird", "cat", "dog"))
 )
 ```
-##Taking the mean of each variable
+
+Taking the mean of each variable
 
 ```{r}
 mean(pull(hw1_df, norm_samp))
 ```
 
-##A mean was calculated for norm_samp 
+A mean was calculated for norm_samp 
 
 ```{r}
 mean(pull(hw1_df,vec_char))
 ```
-##The following error message was recieved when the mean of character vector, vec_char, was requested: "argument is not numeric or logical: returning NA[1] NA". This occured because it is composed of character variables and you cannot derive a mean.
+The following error message was recieved when the mean of character vector, vec_char, was requested: "argument is not numeric or logical: returning NA[1] NA". This occured because it is composed of character variables and you cannot derive a mean.
 
 ```{r}
 mean(pull(hw1_df,vec_factor))
 ```
 
-##The following error message was recieved when the mean of factor vector, vec_factor, was requested: "argument is not numeric or logical: returning NA[1] NA". This occured because it is composed of factor variables and you cannot derive a mean.
+The following error message was recieved when the mean of factor vector, vec_factor, was requested: "argument is not numeric or logical: returning NA[1] NA". This occured because it is composed of factor variables and you cannot derive a mean.
 
 ```{r}
 mean(pull(hw1_df, norm_samp_log))
 ```
 
-##A mean was calculated for the logical vector
+A mean was calculated for the logical vector
 
 ```{r}
 as.numeric(pull(hw1_df,vec_char))
 ```
-## Following message was recieved: NAs introduced by coercion[1] NA NA NA NA NA NA NA NA
+
+Following message was recieved when making the character vector numeric: NAs introduced by coercion[1] NA NA NA NA NA NA NA NA
 
 ```{r}
 as.numeric(pull(hw1_df,vec_factor))
 ```
 
-##output: [1] 2 3 1 2 3 1 2 3
+output: [1] 2 3 1 2 3 1 2 3
 
 ```{r}
 as.numeric(pull(hw1_df, norm_samp_log))
 ```
 
-##output: [1] 0 1 1 0 1 1 1 1
+output: [1] 0 1 1 0 1 1 1 1
 
 ```{r}
 as.numeric(pull(hw1_df,norm_samp))
 ```
-##vec_factor, norm_samp_log, and norm_samp could all be converted to a numeric variable. vec_char, the character vector, could not be converted to numeric, which explains why a mean was not calculated. 
+vec_factor, norm_samp_log, and norm_samp could all be converted to a numeric variable. vec_char, the character vector, could not be converted to numeric, which explains why a mean was not calculated. 
        
-##converting the logical vector
+Converting the logical vector
 
 ```{r}
 as.numeric(pull(hw1_df,norm_samp_log)) * (pull(hw1_df,norm_samp))
@@ -78,7 +80,7 @@ as.factor(pull(hw1_df,norm_samp_log)) * (pull(hw1_df,norm_samp))
 as.numeric(as.factor(pull(hw1_df,norm_samp_log)))*(pull(hw1_df,norm_samp))
 ```
 
-##Problem 2
+Problem 2
 
 ```{r}
 set.seed(1234)
@@ -97,7 +99,7 @@ plot_df2 = tibble(
 * The mean is `r mean(pull(plot_df2, x))`, the median is `r median(pull(plot_df2,x))`, and the standard deviation is `r sd(pull(plot_df2, x))`
 * The proportion of cases for which x + y > 1 is `r mean(pull(plot_df2, vec_log2))`
 
-##scatterplot of y vs x
+Scatterplot of y vs x
 
 ```{r yx_scatter}
 ggplot(plot_df2, aes(x=x, y=y, color = vec_log2)) + geom_point()
@@ -106,4 +108,4 @@ ggplot(plot_df2, aes(x=x, y=y, color = vec_numeric2)) + geom_point()
 ggplot(plot_df2, aes(x=x, y=y, color = vec_factor2)) + geom_point()
 ```
 
-##Within the first plot that colors points using the logic variable, the color scale consists of two colors that represent the binary of true versus false. Red equals false and blue equals true. Similarly, within the third plot that colors points using the factor variable the color scale consists of two colors that represent the binary of true versus false. Red equals false and blue equals true. Within the second plot that colors points using the numeric variable, the color scale is a gradient that includes colors from dark blue to light blue, which represents a continuous scale from 0.00 to 1.00 respectively.
+Within the first plot that colors points using the logic variable, the color scale consists of two colors that represent the binary of true versus false. Red equals false and blue equals true. Similarly, within the third plot that colors points using the factor variable the color scale consists of two colors that represent the binary of true versus false. Red equals false and blue equals true. Within the second plot that colors points using the numeric variable, the color scale is a gradient that includes colors from dark blue to light blue, which represents a continuous scale from 0.00 to 1.00 respectively. 
